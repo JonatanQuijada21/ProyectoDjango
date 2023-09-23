@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Listado de Departamentos</h1>
+  <ul>
+    {% for departamento in departamentos %}
+      <li>{{ departamento.nombre }} ({{ departamento.codigo }}) - <a href="{% url 'departamento_update' departamento.pk %}">Editar</a> | <a href="{% url 'departamento_delete' departamento.pk %}">Eliminar</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'departamento_create' %}">Agregar Departamento</a>
+{% endblock %}

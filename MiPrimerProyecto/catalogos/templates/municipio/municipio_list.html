@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Listado de Municipios</h1>
+  <ul>
+    {% for municipio in municipios %}
+      <li>{{ municipio.nombre }} ({{ municipio.codigo }}) - <a href="{% url 'municipio_update' municipio.pk %}">Editar</a> | <a href="{% url 'municipio_delete' municipio.pk %}">Eliminar</a></li>
+    {% endfor %}
+  </ul>
+    <a href="{% url 'municipio_create' %}">Agregar Municipio</a>
+
+{% endblock %}}
